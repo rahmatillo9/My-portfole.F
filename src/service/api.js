@@ -1,3 +1,7 @@
+
+import axios from 'axios';
+
+
 export const getArticle = async () => {
   try {
     const response = await fetch("http://localhost:4000/articles", {
@@ -16,7 +20,7 @@ export const getArticle = async () => {
     return data;
   } catch (error) {
     console.error("Error fetching article:", error);
-    throw error; // Agar xatolik bo'lsa, tashqarida ham ishlatish uchun throw qilamiz
+    throw error; 
   }
 };
 
@@ -43,4 +47,37 @@ export const getProject = async () => {
     throw error; 
   }
 };
+
+
+
+export const handleDelete = async (ProjectId) => {
+  try {
+    const response = await axios.delete(`http://localhost:4000/projects/${ProjectId}`);
+    
+    if (response.status === 200) {
+      alert('Project deleted successfully');
+
+    }
+  } catch (err) {
+    console.error('An error occurred while deleting the article:', err);
+    alert('Failed to delete the article');
+  }
+};
+
+
+
+export const ArticleDelete = async (articleId) => {
+  try {
+    const response = await axios.delete(`http://localhost:4000/articles/${articleId}`);
+    
+    if (response.status === 200) {
+      alert('Article deleted successfully');
+
+    }
+  } catch (err) {
+    console.error('An error occurred while deleting the article:', err);
+    alert('Failed to delete the article');
+  }
+};
+
 

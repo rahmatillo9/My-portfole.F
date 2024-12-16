@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getProject } from '../../service/api';
+import { getProject, handleDelete } from '../../service/api';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectList = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -20,6 +22,11 @@ const ProjectList = () => {
 
     fetchProjects();
   }, []);
+
+  const handleEdit = (ProjectId) => {
+    navigate(`/EditeProject/${ProjectId}`); 
+  };
+
 
   if (loading) return <div className="text-center text-blue-500">Loading...</div>;
   if (error) return <div className="text-center text-red-500">Error: {error}</div>;
@@ -51,6 +58,20 @@ const ProjectList = () => {
               >
                 View Project
               </a>
+            </div>
+            <div className="flex justify-end my-5 mr-2 ">
+            
+            <button  
+            onClick={() => handleDelete(project.id)
+             }
+            type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Delete</button>
+                  <button
+                onClick={() => handleEdit(project.id)}
+                type="button"
+                className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Edit
+              </button>
             </div>
           </div>
         ))}

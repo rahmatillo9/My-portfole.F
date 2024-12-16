@@ -20,17 +20,21 @@ const HeroSection = () => {
         </p>
         <div className="flex justify-center md:justify-start gap-4">
           <a href="projects">
-            <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium hover:bg-yellow-300 transition">
+            <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium hover:bg-yellow-300   transform transition-transform duration-300 hover:scale-105">
               Mening Ishlarim
             </button>
           </a>
+         <a href="/about">
+         <button type="button" class="text-white bg-gradient-to-br px-6 py-3 from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm text-center me-2 mb-2  transform transition-transform duration-300 hover:scale-105">Mening qiziqishlarim</button>
+         </a>
+         
           <a
             href="https://t.me/PPES571"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-purple-500 px-6 py-3 rounded-lg font-medium border border-purple-500 hover:bg-purple-100 transition"
+            className="bg-white text-purple-500 px-6 py-3 rounded-lg font-medium border border-purple-500 hover:bg-purple-100   transform transition-transform duration-300 hover:scale-105"
           >
-            Telegram orqali bog‘lanish
+            Telegram orqali
           </a>
         </div>
       </div>

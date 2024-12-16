@@ -8,11 +8,11 @@ export function Navbar() {
       <div className="w-full">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
 
-          <Link to="/" className="flex items-center mb-4 sm:mb-0">
+          <Link to="/" className="flex items-center mb-4 sm:mb-0   ">
             <img
               src={Logo}
               alt="Butcher Logo"
-              className="h-12 w-auto"
+              className=" w-20 h-20 "
             />
             <span className="ml-2 text-lg font-bold text-white">Butcher</span>
           </Link>
